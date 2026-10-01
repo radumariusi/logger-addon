@@ -48,7 +48,7 @@ function record(req, extraInfo) {
     url: safeDecode(req.url),
     userAgent: h['user-agent'] || null,
     origin: h['origin'] || null,
-    referer: h['referer'] || null,
+    referer: (h['referer'] || '').split('?')[0] || null,
     acceptLanguage: h['accept-language'] || null,
     xForwardedFor: h['x-forwarded-for'] || null,
     clientIp: req.socket.remoteAddress,
